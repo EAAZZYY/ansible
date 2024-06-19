@@ -13,15 +13,14 @@
       
     - name: Create a new EC2 key pair
       amazon.aws.ec2_key:
-        name: "{{ key_name }}"
+        name: "bastion-key"
         region: "{{ region }}"
-        state: absent
       register: bastion_key
       
     - name: Save the private key to a file
       copy:
         content: "{{ bastion_key.key.private_key }}"
-        dest: "./{{key_name}}"
+        dest: "./bastion_key.pem"
         mode: '0600'
       when: bastion_key.changed
 
