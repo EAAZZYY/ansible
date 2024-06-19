@@ -183,5 +183,5 @@
 
     - name: Write outputs to a file
       copy:
-        content: "{{ vpc_outputs | to_nice_json }}"
-        dest: "{{ vars_id_output }}"
+        content: "{{ outputs | to_nice_json }}"
+        dest: "{{ vars/output_ids }}"
