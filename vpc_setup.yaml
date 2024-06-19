@@ -136,3 +136,15 @@
           - dest: ::/0
             gateway_id: "{{ igw.gateway_id }}"
       register: public_route_table
+
+    - name: Create new nat gateway
+      amazon.aws.ec2_vpc_nat_gateway:
+        state: present
+        subnet_id: "{{ public_subnet_2.subnet.id }}"
+        wait: true
+        region: "{{ region }}"
+        if_exist_do_not_create: true
+        tags:
+          Name: vprofile-NAT-GW
+          project: vprofile
+      register: new_nat_gateway
