@@ -9,12 +9,12 @@
 
     - name: Create VPC
       amazon.aws.ec2_vpc_net:
-        name: {{ vpc_name }}
-        cidr_block: {{ vpcCidr }}
-        region: {{ region }}
+        name: "{{ vpc_name }}"
+        cidr_block: "{{ vpcCidr }}"
+        region: "{{ region }}"
         dns_support: true
         dns_hostnames: true
         tenancy: default
-        state: {{ state }}
+        state: "{{ state }}"
         tags: {"project": "vprofile"}
       register: vpc_output
