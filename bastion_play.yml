@@ -48,7 +48,7 @@
         instance_type: "{{ instance_type }}"
         image_id: "{{ ami_id }}"
         vpc_subnet_id: "{{ public_subnet_1_id }}"
-        group_id: "{{ bastionSG.group_id }}"
+        security_group: "{{ bastionSG.group_id }}"
         wait: yes
         exact_count: 1
         tags:
