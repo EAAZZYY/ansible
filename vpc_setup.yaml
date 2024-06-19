@@ -183,5 +183,5 @@
 
     - name: Write outputs to a file
       copy:
-        content: "{{ outputs | to_nice_json }}"
+        content: outputs
         dest: vars/output_ids
