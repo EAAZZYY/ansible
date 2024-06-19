@@ -17,7 +17,7 @@
         tenancy: default
         state: "{{ state }}"
         tags: {"project": "vprofile"}
-      register: vpc_output
+      register: vpc
     
     - name: Create a public subnet in zone-1a
       amazon.aws.ec2_vpc_subnet:
