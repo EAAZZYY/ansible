@@ -167,21 +167,19 @@
 
     - name: Collect all outputs
       set_fact:
-        outputs: {
-          "vpc_id": "{{ vpc.vpc.id }}",
-          "public_subnet_1_id": "{{ public_subnet_1.subnet.id }}",
-          "public_subnet_2_id": "{{ public_subnet_2.subnet.id }}",
-          "public_subnet_3_id": "{{ public_subnet_3.subnet.id }}",
-          "private_subnet_1_id": "{{ private_subnet_1.subnet.id }}",
-          "private_subnet_2_id": "{{ private_subnet_2.subnet.id }}",
-          "private_subnet_3_id": "{{ private_subnet_3.subnet.id }}",
-          "internet_gateway_id": "{{ igw.gateway_id }}",
-          "public_route_table_id": "{{ public_route_table.route_table.id }}",
-          "nat_gateway_id": "{{ new_nat_gateway.nat_gateway_id }}",
+          "vpc_id": "{{ vpc.vpc.id }}"
+          "public_subnet_1_id": "{{ public_subnet_1.subnet.id }}"
+          "public_subnet_2_id": "{{ public_subnet_2.subnet.id }}"
+          "public_subnet_3_id": "{{ public_subnet_3.subnet.id }}"
+          "private_subnet_1_id": "{{ private_subnet_1.subnet.id }}"
+          "private_subnet_2_id": "{{ private_subnet_2.subnet.id }}"
+          "private_subnet_3_id": "{{ private_subnet_3.subnet.id }}"
+          "internet_gateway_id": "{{ igw.gateway_id }}"
+          "public_route_table_id": "{{ public_route_table.route_table.id }}"
+          "nat_gateway_id": "{{ new_nat_gateway.nat_gateway_id }}"
           "private_route_table_id": "{{ private_route_table.route_table.id }}"
-        }
 
     - name: Write outputs to a file
       copy:
-        content: outputs
+        content: "vpc_id: {{ vpc.vpc.id }}\npublic_subnet_1_id: {{ public_subnet_1.subnet.id }}\npublic_subnet_2_id: {{ public_subnet_2.subnet.id }}\npublic_subnet_3_id: {{ public_subnet_3.subnet.id }}\nprivate_subnet_1_id: {{ private_subnet_1.subnet.id }}\nprivate_subnet_2_id: {{ private_subnet_2.subnet.id }}\nprivate_subnet_3_id: {{ private_subnet_3.subnet.id }}\ninternet_gateway_id: {{ igw.gateway_id }}\npublic_route_table_id: {{ public_route_table.route_table.id }}\nnat_gateway_id: {{ new_nat_gateway.nat_gateway_id }}\nprivate_route_table_id: {{ private_route_table.route_table.id }}" 
         dest: vars/output_ids
