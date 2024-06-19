@@ -1,3 +1,8 @@
-bastion_ami: ami-05f5873031cb7f569
+ami_id: ami-05f5873031cb7f569
+instance_type: t2.micro
 region: eu-north-1
-MYIP: 102.89.22.83/32
+key_name: bastion_key.pem
+key_file_path: ~/.ssh/
+security_group_name: bastionSG
+security_group_description: bastionSG
+myip: 102.89.23.30/32
