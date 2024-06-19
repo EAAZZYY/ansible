@@ -109,3 +109,30 @@
           }
       register: private_subnet_3
 
+    - name: Create Internet gateway
+      amazon.aws.ec2_vpc_igw:
+        vpc_id: "{{ vpc.vpc.id }}"
+        region: "{{ region }}"
+        state: present
+        tags:
+          Name: vprofile-IGW
+          project: vprofile
+      register: igw
+
+    - name: Set up public subnet route table
+      amazon.aws.ec2_vpc_route_table:
+        vpc_id: "{{vpc.vpc.id}}"
+        region: "{{region}}"
+        tags:
+          Name: vprofile-RT
+          project: vprofile
+        subnets:
+          - "{{ public_subnet_1.subnet.id }}"
+          - "{{ public_subnet_2.subnet.id }}"
+          - "{{ public_subnet_3.subnet.id }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ igw.gateway_id }}"
+          - dest: ::/0
+            gateway_id: "{{ igw.gateway_id }}"
+      register: public_route_table
