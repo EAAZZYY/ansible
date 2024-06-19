@@ -176,9 +176,9 @@
           "private_subnet_2_id": "{{ private_subnet_2.subnet.id }}",
           "private_subnet_3_id": "{{ private_subnet_3.subnet.id }}",
           "internet_gateway_id": "{{ igw.gateway_id }}",
-          "public_route_table_id": "{{ public_route_table.route_table_id }}",
+          "public_route_table_id": "{{ public_route_table.route_table.id }}",
           "nat_gateway_id": "{{ new_nat_gateway.nat_gateway_id }}",
-          "private_route_table_id": "{{ private_route_table.route_table_id }}"
+          "private_route_table_id": "{{ private_route_table.route_table.id }}"
         }
 
     - name: Write outputs to a file
