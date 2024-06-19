@@ -44,7 +44,7 @@
       amazon.aws.ec2_instance:
         name: Bastion_Server
         region: "{{ region }}"
-        key_name: "bastion_key"
+        key_name: "bastion-key"
         instance_type: "{{ instance_type }}"
         image_id: "{{ ami_id }}"
         vpc_subnet_id: "{{ public_subnet_1_id }}"
