@@ -20,7 +20,7 @@
     - name: Save the private key to a file
       copy:
         content: "{{ bastion_key.key.private_key }}"
-        dest: "{{ key_file_path }}"
+        dest: "./{{key_name}}"
         mode: '0600'
 
     - name: Create a new security group
