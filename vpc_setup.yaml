@@ -148,3 +148,21 @@
           Name: vprofile-NAT-GW
           project: vprofile
       register: new_nat_gateway
+
+    - name: Set up private route table for NAT Gateway
+      amazon.aws.ec2_vpc_route_table:
+        vpc_id: "{{vpc.vpc.id}}"
+        region: "{{region}}"
+        tags:
+          Name: vprofile-RT
+          project: vprofile
+        subnets:
+          - "{{ private_subnet_1.subnet.id }}"
+          - "{{ private_subnet_2.subnet.id }}"
+          - "{{ private_subnet_3.subnet.id }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ new_nat_gateway.nat_gateway_id }}"
+          - dest: ::/0
+            gateway_id: "{{ new_nat_gateway.nat_gateway_id }}"
+      register: private_route_table
