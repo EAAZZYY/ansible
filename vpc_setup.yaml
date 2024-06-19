@@ -154,7 +154,7 @@
         vpc_id: "{{vpc.vpc.id}}"
         region: "{{region}}"
         tags:
-          Name: vprofile-RT
+          Name: vprofile-Nat-GW
           project: vprofile
         subnets:
           - "{{ private_subnet_1.subnet.id }}"
