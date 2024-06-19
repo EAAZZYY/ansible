@@ -163,6 +163,4 @@
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{ new_nat_gateway.nat_gateway_id }}"
-          - dest: ::/0
-            gateway_id: "{{ new_nat_gateway.nat_gateway_id }}"
       register: private_route_table
