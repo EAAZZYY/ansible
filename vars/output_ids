@@ -7,5 +7,5 @@ private_subnet_2_id: subnet-0b488acd6ea369525
 private_subnet_3_id: subnet-0d7b294258162779c
 internet_gateway_id: igw-0c29b1dcd42fe71bb
 public_route_table_id: rtb-05854b2cd70818955
-nat_gateway_id: nat-024e6508dfdde9f35
+nat_gateway_id: nat-05e8ad22f656f67a5
 private_route_table_id: rtb-04e0789c838baaba9
