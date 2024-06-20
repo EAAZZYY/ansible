@@ -5,4 +5,4 @@ key_name: bastion_key.pem
 key_file_path: ~/.ssh/
 security_group_name: bastionSG
 security_group_description: bastionSG
-myip: 102.89.23.30/32
+myip: 0.0.0.0/0
